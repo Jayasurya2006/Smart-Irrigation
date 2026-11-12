@@ -1,90 +1,163 @@
-# Smart Irrigation System Using ESP32
+# 🌱 Smart Irrigation System Using ESP32
 
-An IoT-based smart irrigation project designed to monitor soil and environmental conditions and support intelligent water management in agriculture.
+### IoT-Based Intelligent Irrigation for Smart Agriculture
 
-## Project Overview
+An IoT and machine-learning-based irrigation project designed to monitor soil and environmental conditions and support efficient water management.
 
-This project explores an automated irrigation system using an ESP32 microcontroller and multiple sensors. The system collects field data and uses a machine-learning-based decision approach to determine whether irrigation is required.
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-ESP32-blue?style=for-the-badge" alt="ESP32">
+  <img src="https://img.shields.io/badge/Domain-IoT-green?style=for-the-badge" alt="IoT">
+  <img src="https://img.shields.io/badge/AI-XGBoost-orange?style=for-the-badge" alt="XGBoost">
+  <img src="https://img.shields.io/badge/Status-Design%20Phase-yellow?style=for-the-badge" alt="Design Phase">
+</p>
 
-The proposed design also includes farmer communication through GSM-based SMS notifications.
+## 📌 Project Overview
 
-## Objectives
+The Smart Irrigation System aims to automate irrigation decisions using an ESP32 microcontroller, multiple sensors and a planned machine-learning pipeline.
+
+The system is designed to monitor soil moisture, temperature, humidity and rainfall. It will use this information to determine whether irrigation is needed and estimate the required watering duration.
+
+Farmer-friendly GSM communication is also planned.
+
+## 🎯 Objectives
 
 - Monitor soil moisture and environmental conditions.
-- Reduce unnecessary water usage.
+- Reduce unnecessary water consumption.
 - Explore machine learning for irrigation decisions.
-- Provide a practical and affordable solution for farmers.
-- Enable remote communication through GSM.
+- Develop a farmer-friendly automated irrigation solution.
+- Support remote communication through GSM.
 
-## Proposed System Architecture
+## 🏗️ System Architecture
 
-1. **Sensor Layer:** Capacitive soil-moisture sensors, DHT11 and rain sensor.
-2. **Controller Layer:** ESP32 collects and processes sensor readings.
-3. **Data Validation:** Checks sensor readings and identifies invalid data.
-4. **Machine Learning:** XGBoost-based irrigation decision and duration prediction.
-5. **Explainable AI:** SHAP to understand model predictions.
-6. **Actuation:** Pump control through a suitable driver or relay.
-7. **Communication:** GSM module for SMS-based farmer notifications.
+```mermaid
+flowchart TD
+    A["Soil Moisture Sensors"]
+    B["DHT11 Sensor"]
+    C["Rain Sensor"]
 
-## Hardware Components
+    A --> D["ESP32 Controller"]
+    B --> D
+    C --> D
+
+    D --> E["Sensor Data Validation"]
+    E --> F{"Irrigation Required?"}
+
+    F -->|No| G["Pump OFF"]
+    F -->|Yes| H["XGBoost Prediction"]
+
+    H --> I["Irrigation Duration"]
+    I --> J["Safety Controller"]
+    J --> K["Relay / Motor Driver"]
+    K --> L["Water Pump"]
+
+    D --> M["GSM Module"]
+    M --> N["Farmer Mobile Phone"]
+```
+
+## 🔧 Planned Hardware Components
 
 | Component | Purpose |
 |---|---|
-| ESP32 | Main controller |
-| Capacitive soil-moisture sensors | Soil moisture monitoring |
+| ESP32 DevKit V1 | Main controller |
+| Capacitive soil moisture sensors | Soil moisture monitoring |
 | DHT11 | Temperature and humidity |
 | Rain sensor | Rain detection |
 | SIM800L GSM module | SMS communication |
-| Relay / motor driver | Pump control |
+| Relay / motor driver | Pump switching |
 | Water pump | Irrigation |
 
-*Final component selection and wiring will be documented as the prototype is developed.*
+## 💻 Proposed Technology Stack
 
-## Proposed Technology Stack
+| Area | Technology |
+|---|---|
+| Microcontroller | ESP32 |
+| Embedded programming | C/C++ |
+| IDE | Arduino IDE |
+| Machine Learning | Python, XGBoost |
+| Data Processing | Pandas, NumPy |
+| Model Evaluation | Scikit-learn |
+| Explainable AI | SHAP |
+| Communication | GSM / SMS |
 
-- **Embedded:** ESP32, Embedded C/C++, Arduino IDE
-- **Machine Learning:** Python, XGBoost, Scikit-learn
-- **Explainable AI:** SHAP
-- **Data Processing:** Pandas, NumPy
-- **Communication:** GSM / SMS
+## 🤖 Machine Learning Approach
 
-## Machine Learning Approach
+The proposed design uses a two-stage prediction approach.
 
-The planned two-stage model consists of:
+**Stage 1 — Classification**
 
-- **Stage 1:** Classification — predict whether irrigation is required.
-- **Stage 2:** Regression — estimate irrigation duration when irrigation is required.
+An XGBoost classifier will predict whether irrigation is required.
 
-SHAP will be explored to explain the model's predictions.
+**Stage 2 — Regression**
 
-## Project Status
+An XGBoost regressor will estimate irrigation duration when watering is required.
 
-**Development in progress.**
+**Explainable AI**
 
-The architecture and implementation plan are being documented. Hardware integration, model training and field testing will be updated as they are completed.
+SHAP will be explored to understand the influence of individual sensor features on predictions.
 
-## Future Enhancements
+## 📂 Repository Structure
 
-- Tamil SMS notifications for farmers.
-- Voice-call alerts and IVR support.
+```text
+Smart-Irrigation/
+│
+├── README.md
+│
+├── docs/
+│   └── architecture.md
+│
+├── hardware/
+│   └── components.md
+│
+├── firmware/
+│   └── README.md
+│
+├── machine-learning/
+│   └── README.md
+│
+├── dataset/
+│   └── README.md
+│
+└── demo/
+    └── README.md
+```
+
+## 🚀 Planned Development Stages
+
+- [ ] Hardware integration
+- [ ] Sensor data acquisition
+- [ ] Sensor calibration
+- [ ] ESP32 firmware development
+- [ ] Dataset collection
+- [ ] XGBoost model training
+- [ ] SHAP-based model explanation
+- [ ] GSM communication
+- [ ] Automated pump control
+- [ ] Testing and field validation
+
+## 🔮 Future Enhancements
+
+- Tamil SMS notifications.
+- Voice-call alerts and IVR.
 - Sensor fault detection.
 - Edge-based fallback operation.
 - Field testing and water-consumption evaluation.
 
-## Repository Structure
+## 📊 Project Status
 
-```text
-Smart-Irrigation/
-├── README.md
-├── images/
-├── docs/
-├── hardware/
-├── firmware/
-├── machine-learning/
-├── dataset/
-└── demo/
-```
+**Current phase: Design and planning**
 
-## Project Goal
+The architecture and documentation are being prepared. Hardware integration, firmware development, machine-learning implementation and testing are pending.
 
-To explore an affordable, intelligent and farmer-friendly irrigation solution using IoT and machine learning.
+Only verified features and experimental results will be marked as completed.
+
+## 👨‍💻 Project Author
+
+**Jayasurya P**
+
+B.E. Computer Science and Engineering – Internet of Things
+
+GitHub: [@Jayasurya2006](https://github.com/Jayasurya2006)
+
+---
+
+*Building an affordable and intelligent irrigation solution for sustainable agriculture.*
