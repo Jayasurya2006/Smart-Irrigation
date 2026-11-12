@@ -1,0 +1,27 @@
+# Project Demonstration
+
+## Overview
+
+This directory will contain demonstration materials for the Smart Irrigation System.
+
+## Planned Demonstration Materials
+
+1. Complete hardware prototype photograph.
+2. ESP32 and sensor connections.
+3. Live soil moisture readings.
+4. Temperature, humidity and rain detection.
+5. Automatic pump operation.
+6. GSM SMS notification demonstration.
+7. Machine learning prediction results.
+
+## Demo Video
+
+A demonstration video will be added after the physical prototype is assembled and tested.
+
+## Project Screenshots
+
+Actual photographs and screenshots will be uploaded here.
+
+## Current Status
+
+Demonstration materials are pending prototype implementation and testing.
